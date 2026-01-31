@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin thành viên</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .profile-container { max-width: 800px; margin: 50px auto; padding: 20px; background: white; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .profile-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 5px solid #ff6f61; }
+        .bio { text-align: left; margin-top: 20px; line-height: 1.6; }
+        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #ff6f61; color: white; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Thông Tin Thành Viên</h1>
+    </header>
+
+    <div class="profile-container" id="profile-content">
+        <p>Đang tải dữ liệu...</p>
+    </div>
+
+    <script>
+        // Dữ liệu mô tả chi tiết
+        const dataThanhVien = {
+            "hoang": {
+                ten: "Trần Việt Hoàng",
+                vaitro: "Kỹ thuật viên Render",
+                anh: "./image/hoang.jpg",
+                mota: "Hoàng là chuyên gia về tối ưu hóa giao diện. Anh ấy đã xây dựng hệ thống render sản phẩm giúp trang web chạy mượt mà trên mọi thiết bị."
+            },
+            "nghia": {
+                ten: "Đoàn Trọng Nghĩa",
+                vaitro: "Nhóm trưởng / Developer",
+                anh: "./image/dcn.jpg",
+                mota: "Nghĩa chịu trách nhiệm quản lý chung và phát triển logic giỏ hàng. Với tư duy logic tốt, anh giúp dự án luôn đi đúng hướng."
+            },
+            "viet": {
+                ten: "Phạm Quốc Việt",
+                vaitro: "Kỹ thuật viên Backend & Auth",
+                anh: "./image/pqv.jpg",
+                mota: "Việt phụ trách hệ thống đăng ký/đăng nhập và bảo mật dữ liệu khách hàng. Anh ấy đảm bảo mọi giao dịch của bạn đều an toàn."
+            }
+        };
+
+        // Lấy ID từ URL (ví dụ: ?id=hoang)
+        const urlParams = new URLSearchParams(window.location.search);
+        const memberId = urlParams.get('id');
+
+        const info = dataThanhVien[memberId];
+        const container = document.getElementById('profile-content');
+
+        if (info) {
+            container.innerHTML = `
+                <img src="${info.anh}" class="profile-img">
+                <h2 style="color: #ff6f61; margin-top:15px;">${info.ten}</h2>
+                <p><b>Chức vụ:</b> ${info.vaitro}</p>
+                <div class="bio">
+                    <h3>Giới thiệu:</h3>
+                    <p>${info.mota}</p>
+                </div>
+                <a href="index.html" class="back-btn">Quay lại trang chủ</a>
+            `;
+        } else {
+            container.innerHTML = "<p>Không tìm thấy thành viên!</p><a href='index.html'>Quay lại</a>";
+        }
+    </script>
+</body>
+</html>

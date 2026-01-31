@@ -1,0 +1,338 @@
+/* style.css - Bản thiết kế mới hiện đại */
+
+/* 1. Thiết lập chung */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fdfdfd;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 2. Header & Navigation */
+header {
+    background: linear-gradient(135deg, #ff6f61, #ff9a8b);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+nav {
+    background: white;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: #555;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ff6f61;
+}
+
+/* 3. Bộ lọc & Nút Xem giỏ */
+.xemgio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: #fffafa;
+}
+
+select {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 2px solid #ff6f61;
+    outline: none;
+    cursor: pointer;
+}
+
+#btnXemGio {
+    background: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+#btnXemGio:hover {
+    background: #e65b50;
+    transform: scale(1.05);
+}
+
+/* 4. Danh sách sản phẩm (Grid) */
+#dsdoanvat {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 30px 10%;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    height: 50px; /* Giữ các card đều nhau */
+    overflow: hidden;
+}
+
+.card .gia {
+    color: #ff6f61;
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.card input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.btn-them {
+    display: block;
+    width: 100%;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-them:hover {
+    background: #45a049;
+}
+
+/* 5. Giỏ hàng & Bảng */
+.cart {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th {
+    background: #f8f8f8;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #eee;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+td img {
+    width: 70px;
+    border-radius: 5px;
+}
+
+/* 6. Footer */
+#footer {
+    background: #333;
+    color: #ccc;
+    padding: 40px 10%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.footer-column h4 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.footer-column a {
+    color: #ff6f61;
+    text-decoration: none;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    #dsdoanvat { padding: 20px 5%; }
+    .xemgio { flex-direction: column; gap: 15px; }
+    .container { flex-direction: column; }
+}
+/* ===== KHU VỰC GIỚI THIỆU ĐỘI NGŨ ===== */
+#gioithieu {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff;
+    margin-top: 20px;
+}
+
+#gioithieun {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.thanhvien {
+    width: 280px;
+    background: #4a90e2; /* Màu xanh chuyên nghiệp */
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng phóng to khi di chuột vào */
+.thanhvien:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    background: #357abd;
+}
+
+.thanhvien img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 15px;
+}
+
+.thanhvien h3 {
+    margin: 10px 0;
+    font-size: 22px;
+}
+
+.thanhvien .chucvu {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+#btnXoaTatCa {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+#btnThanhToan {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+#btnVeTrangChu {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+/* Căn chỉnh cụm Đăng nhập & Giỏ hàng */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Khoảng cách giữa nút đăng nhập và giỏ hàng */
+}
+
+/* Biến link đăng nhập thành hình cái nút cho đẹp */
+.btn-auth {
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 1px solid #ff6f61;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.btn-auth:hover {
+    background: #ff6f61;
+    color: white;
+}
+
+/* Đảm bảo nút Xem giỏ vẫn nổi bật */
+#btnXemGio {
+    background: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

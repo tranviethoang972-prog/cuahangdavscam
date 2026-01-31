@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .container { max-width: 900px; margin: 50px auto; display: flex; gap: 30px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .left img { width: 350px; border-radius: 10px; }
+        .right { flex: 1; }
+        .btn-add { background: #ff6f61; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header><h1>Thông Tin Sản Phẩm</h1></header>
+    <div class="container" id="detail"></div>
+        <footer>
+    <div id="footer">
+        <div class="footer-column">
+            <h4>Thông tin liên hệ</h4>
+            <p>📞 Hotline 1: 0986-612-423</p>
+            <p>📞 Hotline 2: 0935-656-603</p>
+            <p>📧 Email: scam@anvat.com</p>
+        </div>
+        <div class="footer-column">
+            <h4>Liên kết nhanh</h4>
+            <a href="https://bdi.edu.vn/">Trang chủ</a><br>
+            <a href="https://www.facebook.com/bdi.edu.vn">Facebook</a><br>
+            <a href="https://zalo.me/3588207385082038590">Zalo OA</a>
+        </div>
+        <div class="footer-column">
+            <h4>Địa chỉ cửa hàng</h4>
+            <p>79 ĐT743, Bình Hòa, Thuận An, Bình Dương</p>
+            <p>Thời gian mở cửa: 08:00 - 22:00</p>
+        </div>
+        <div class="footer-column map-footer">
+            <h4>Vị trí trên bản đồ</h4>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15671.499550872566!2d106.74418714421083!3d10.89711181022923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d83c1116183d%3A0xfa754495eeb43247!2zVHLGsOG7nW5nIFRydW5nIEPhuqVwIEPDtG5nIE5naGnhu4dwIELDrG5oIETGsMahbmc!5e0!3m2!1svi!2s!4v1769801604870!5m2!1svi!2s" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</footer>
+    <script src="noidung.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        const id = new URLSearchParams(window.location.search).get('id');
+        const p = danhsachdav.find(item => item.id == id);
+        if(p) {
+            document.getElementById('detail').innerHTML = `
+                <div class="left"><img src="${p.hinh}"></div>
+                <div class="right">
+                    <h2>${p.ten}</h2>
+                    <p><b>Loại:</b> ${p.loai}</p>
+                    <p><b>Khối lượng:</b> ${p.khoiluong}</p>
+                    <p style="color:red; font-size:24px;"><b>Giá: ${p.gia.toLocaleString()}đ</b></p>
+                    <hr>
+                    <p><b>Mô tả:</b> ${p.mota}</p>
+                    <input type="number" id="sl-${p.id}" value="1" min="1" style="width:50px; padding:8px;">
+                    <button class="btn-add" onclick="themVaoGio(${p.id})">Thêm vào giỏ hàng</button>
+                    <br><br><a href="index.html">← Quay lại trang chủ</a>
+                </div>`;
+        }
+    </script>
+</body>
+</html>

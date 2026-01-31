@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập & Đăng ký</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .auth-form { display: none; }
+        .auth-form.active { display: block; }
+        .auth-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .toggle-link {
+            text-align: center;
+            margin-top: 15px;
+            cursor: pointer;
+            color: #ff6f61;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🍬 Cửa Hàng Đồ Ăn Vặt SCAM 🍪</h1>
+    </header>
+
+    <div class="auth-container">
+        <div id="loginForm" class="auth-form active">
+            <h2>Đăng nhập</h2>
+            <input type="text" id="loginUser" placeholder="Tên đăng nhập">
+            <input type="password" id="loginPass" placeholder="Mật khẩu">
+            <button onclick="xuLyDangNhap()" style="width: 100%">Đăng nhập</button>
+            <p class="toggle-link" onclick="chuyenForm('registerForm')">Chưa có tài khoản? Đăng ký ngay</p>
+        </div>
+
+        <div id="registerForm" class="auth-form">
+            <h2>Đăng ký</h2>
+            <input type="text" id="regUser" placeholder="Tên đăng nhập mới">
+            <input type="password" id="regPass" placeholder="Mật khẩu">
+            <input type="password" id="regConfirm" placeholder="Xác nhận mật khẩu">
+            <button onclick="xuLyDangKy()" style="width: 100%">Đăng ký</button>
+            <p class="toggle-link" onclick="chuyenForm('loginForm')">Đã có tài khoản? Đăng nhập</p>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
